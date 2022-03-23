@@ -78,7 +78,7 @@ dataMDR["Clone"]=do.call(cbind.data.frame, lapply(dataMDR["Clone"], as.factor))
 str(dataMDR)
 
 
-######Euler Lotka calculations for reproductive performance (RP)######
+######Euler Lotka calculations for intrinsic population growth rate (r)######
 
 #remark - jars (IDs) with on a certain day no mothers alive will cause an error (is an NA, which gives an error with the uniroot), 
 #if your mothers died before the end of the second brood, discard these jars 
@@ -225,7 +225,7 @@ interactL1<-pairs(emmeans(lmLambda, ~Pesticide|HeatSpike, adjust="none"))
 interactL2<-pairs(emmeans(lmLambda, ~HeatSpike|Pesticide, adjust="none"))
 rbind(interactL1,interactL2, adjust="fdr")
 
-#Plot
+#Plot (not used in manuscript)
 LambdaData <- summary(emmeans(lmLambda, ~ HeatSpike*Pesticide*Clone, type = "response"))
 png("Figure_Lambda.png", width = 18, height = 18, unit = "cm", res=300)
 LambdaPlot <- ggplot(LambdaData, aes(x = Clone, y = emmean, col = Pesticide, shape = HeatSpike)) +
@@ -360,7 +360,7 @@ contrastB<-pairs(emmeans(lmSize, ~HeatSpike*Pesticide|Clone, adjust="none"))
 rbind(contrastB, adjust="fdr")
 
 
-######CTmax (heat tolerance)######
+######CTmax######
 
 #Interaction in model --> use set_sum_contrasts() and type=3 in Anova
 set_sum_contrasts()
@@ -513,4 +513,4 @@ ggscatter(dataMDR, x = "CTmax", y = "SurvivalPesticide48h",
           xlab = "Heat tolerance (°C of CTmax under standard conditions)", ylab = "Pesticide tolerance (% survival 48 hours after esfenvalerate pulse)")
 
 ######Save Rdata######
-save.image(file="Delnat et al_effect-heat-spike-esfenvalerate-genotype_20220323_NotPublished.Rdata")
+save.image(file="Delnat et al_effect-heat-spike-esfenvalerate-genotype_20220323.Rdata")
