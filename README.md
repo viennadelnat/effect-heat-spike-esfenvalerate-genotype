@@ -1,7 +1,7 @@
 # effect-heat-spike-esfenvalerate-genotype
 R code for 'How a heat spike shapes pesticide toxicity strongly differs among genotypes in the water flea Daphnia magna'
 
-Delnata V., Verheyen J., Van Hileghem I., and Stoks R. (submitted)
+Delnat V., Verheyen J., Van Hileghem I., and Stoks R. (submitted)
 
 ## R code
 * Packages
